@@ -37,16 +37,39 @@ app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
 
                                 # TASK 2: Add a pie chart to show the total successful launches count for all sites
                                 # If a specific launch site was selected, show the Success vs. Failed counts for the site
-                                html.Div(dcc.Graph(id='success-pie-chart')),
+                                html.Div(
+                                  dcc.Graph(
+                                    id='success-pie-chart')),
                                 html.Br(),
 
                                 html.P("Payload range (Kg):"),
                                 # TASK 3: Add a slider to select payload range
                                 #dcc.RangeSlider(id='payload-slider',...)
-                                dcc.RangeSlider(id='payload-slider',min=0,max=10000,step=1000,value=[min_payload,max_payload]),
+                                dcc.RangeSlider(
+                                  id='payload-slider',
+                                  min=0,
+                                  max=10000,
+                                  step=1000,
+                                  marks = {
+                                            0: '0 kg',
+                                            1000: '1000 kg',
+                                            2000: '2000 kg',
+                                            3000: '3000 kg',
+                                            4000: '4000 kg',
+                                            5000: '5000 kg',
+                                            6000: '6000 kg',
+                                            7000: '7000 kg',
+                                            8000: '8000 kg',
+                                            9000: '9000 kg',
+                                            10000: '10000 kg'},
+                                  value=[
+                                    min_payload,
+                                    max_payload]),
 
                                 # TASK 4: Add a scatter chart to show the correlation between payload and launch success
-                                html.Div(dcc.Graph(id='success-payload-scatter-chart')),
+                                html.Div(
+                                  dcc.Graph(
+                                    id='success-payload-scatter-chart')),
                                 ])
 
 # TASK 2:
